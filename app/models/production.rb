@@ -3,6 +3,7 @@ class Production < ApplicationRecord
   has_many :roles, dependent: :destroy
   has_many :actors, class_name: "User", through: :roles, dependent: :destroy
   has_many :audition_requests, through: :roles, dependent: :destroy
+  validates :title, :production_type, :budget, :date_begin, :date_end, :studio_id, :description, presence: true
   validate :no_time_travel
 
   PRODUCTION_TYPES = ["Film", "Television Show", "Commercial", "Play", "Short Film", "Experimental"]

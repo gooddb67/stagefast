@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_many :roles, foreign_key: "actor_id", dependent: :destroy
   has_many :audition_requests, foreign_key: "actor_id", dependent: :destroy
   has_many :productions, foreign_key: "studio_id", dependent: :destroy
-  validates :email, presence :true
+  validates :email, presence: true
   has_secure_password
 
   mount_uploader :headshot, HeadshotUploader
